@@ -12,8 +12,10 @@ import {Router} from "@angular/router";
 })
 export class UserListComponent implements OnInit {
 
-  msgs: Message[] = [{summary: "users", severity: "info"}]
+  msgs: Message[] = [{summary: "users", severity: "info", }]
   users: User[] = [];
+  searchUsers: User[] = [];
+  searchValue: string = '';
 
   constructor(private readonly _userApiService: UserApiService,
               private readonly _router: Router,
@@ -56,5 +58,15 @@ export class UserListComponent implements OnInit {
         console.log("master branch")
       }
     });
+  }
+
+  // 
+  searchInList(event:any){
+    if(event.keyCode == 13){
+      this.searchUsers= this.users.filter( user => {
+        return user.username.includes(this.searchValue)
+      })
+    }
+
   }
 }

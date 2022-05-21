@@ -1,14 +1,14 @@
-<p-messages [value]="msgs" [closable]="false"></p-messages>
+<p-messages [value]="msgs" [enableService]="false"></p-messages>
 <p-confirmPopup></p-confirmPopup>
 <div class="card">
 
-  <p-table [value]="users">
+  <p-table [value]="searchUsers.length ? searchUsers:users">
     <ng-template pTemplate="caption">
       <div class="table-header">
         Single Column
           <span class="p-input-icon-left">
               <i class="pi pi-search"></i>
-              <input pInputText type="text"  placeholder="Global Search" />
+              <input pInputText type="text" [(ngModel)]="searchValue" (keyup)="searchInList($event)" placeholder="Global Search" />
           </span>
       </div>
     </ng-template>

@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {AdminComponent} from './admin.component';
 import {AdminRoutingModule} from "./admin-routing.module";
@@ -41,7 +42,8 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
     MessagesModule,
     MessageModule,
     TableModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    FormsModule
   ]
 })
 export class AdminModule {
